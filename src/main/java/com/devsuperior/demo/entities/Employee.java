@@ -1,5 +1,7 @@
 package com.devsuperior.demo.entities;
 
+import com.devsuperior.demo.dto.EmployeeDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +32,14 @@ public class Employee {
 		this.name = name;
 		this.email = email;
 		this.department = department;
+	}
+
+	public Employee(EmployeeDTO dto) {
+		this.id = dto.getId();
+		this.name = dto.getName();
+		this.email = dto.getEmail();
+		this.department = new Department();
+		this.department.setId(dto.getDepartmentId());
 	}
 
 	public Long getId() {
