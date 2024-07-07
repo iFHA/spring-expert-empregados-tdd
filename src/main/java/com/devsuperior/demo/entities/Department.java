@@ -3,6 +3,8 @@ package com.devsuperior.demo.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.devsuperior.demo.dto.DepartmentDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +30,11 @@ public class Department {
 	public Department(Long id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+	
+	public Department(DepartmentDTO dto) {
+		this.id = dto.id();
+		this.name = dto.name();
 	}
 
 	public Long getId() {
